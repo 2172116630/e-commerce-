@@ -17,3 +17,4 @@
 * Create a view to crate new data (review)
 * Create a view to calculate the posts 
 # **ER-Diagram**
+![ Link ] (file:///C:/Users/%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%86%D8%AF%D8%A7%D8%AA/Downloads/image.png)
