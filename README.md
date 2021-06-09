@@ -3,18 +3,23 @@
 * **manager**: Hadeel Abukhousah 2172116630
 * Naeimah Alsaleh 2171113711
 
+# **News Blog Description:**
+
 
 # **Requirements for This project:**
-* Create a view to list all the posts which have a published status, show the post title and date it will be created on .
-* Create a view to fillter the Category
-* Create a view with search fuction by Category and title.
-* Create a view to specific data objects in the web page. (search)
-* Create a view to specific data objects in the web page.(review)
-* Create a view to specific data objects in the web page.(Category)
-* Create a view to Create new data inline form (trends)
-* Create a view to update post list (post)
-* Create a view to update trend posts
-* Create a view to crate new data (review)
-* Create a view to calculate the posts 
+* Create a list view (home) to show all the posts.
+* Create a detalis view (about) to show the post title , body, created on, updated on
+* Create an update view (edit) that can edit the post title, body.
+* Create a list view to show all the trend posts.(Trend).(INLINE)
+* Create a view to allow the authors to search for the post by post title.
+* Create a list view to show all the category type.
+* Create a detalis view to show comment details the post title , author, comment, created on.
+* Create a list view to show the author contact by Author name , and author email. 
+* Create a view that allow the author to delete post form list post .
+* Create a view that allow the author to update post form list trand .
+*  create a view to calculate all the post in home page.
 # **ER-Diagram**
-![ Link ] (file:///C:/Users/%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%86%D8%AF%D8%A7%D8%AA/Downloads/image.png)
+
+![NewsBlog ER](https://user-images.githubusercontent.com/81963417/121391538-2715a600-c957-11eb-92ed-3efd91b9e821.jpeg)
+
+
