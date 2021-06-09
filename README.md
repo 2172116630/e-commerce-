@@ -4,6 +4,7 @@
 * Naeimah Alsaleh 2171113711
 
 # **News Blog Description:**
+Our project is a news blog, news blog is type of blogs that cover a different topics such as bussines, lifestyle,fashion, gaming,technology,sciences,political.It's an environment for authors to share their idea's with each other by writting posts and leave a comments also they  can see the top for this month by trend post list,which motivates the authors to do their best.The authors can search for the posts by post title or by category types. Athors can stay in touch by the contact list . 
 
 
 # **Requirements for This project:**
