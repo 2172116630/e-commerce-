@@ -8,19 +8,22 @@ Our project is a news blog, news blog is type of blogs that cover a different to
 
 
 # **Requirements for This project:**
-* Create a list view (home) to show all the posts.
-* Create a detalis view (about) to show the post title , body, created on, updated on
-* Create an update view (edit) that can edit the post title, body.
-* Create a list view to show all the trend posts.(Trend).(INLINE)
-* Create a view to allow the authors to search for the post by post title.
-* Create a list view to show all the category type.
-* Create a detalis view to show comment details the post title , author, comment, created on.
-* Create a list view to show the author contact by Author name , and author email. 
-* Create a view that allow the author to delete post form list post .
-* Create a view that allow the author to update post form list trand .
-*  create a view to calculate all the post in home page.
+* Input some data for testing, you must have at least 4 posts with each Post  has a Category, and randomly provide comments for some of the post in these posts. Make sure you have some published and unpublished posts. Use the admin interface username: BlogNews, password: B123B123.
+* Create a view to list all the posts which have a published status, show the post title and date it will be created on.
+* Create a view to list all the posts which have a unpublished status, show the post title and date it will be created on.
+* Create a view to show the details of a single post (all information about the post), including the body.
+* Create a view to list the names of everyone that make a Comment in a post and the time they submitted their comment.
+* In the post list view, make the title of each post into a link that opens the corresponding post’s detailed view when clicked.
+*  In the post list view, show number of Comments for each post.
+* In the detailed view, show the total number of Comments. 
+* In the detailed view, turn each comment into a link if clicked will open the view the lists the names of everyone that wrote a comment.
+* Create a view to create a post that redirects you back to the post list upon successful completion.
+* Create a view that allows you to edit the post details, upon successful completion should redirect you to the detailed post view.
+*  create an About view to show the About details.
 # **ER-Diagram**
 
-![NewsBlog ER](https://user-images.githubusercontent.com/81963417/121391538-2715a600-c957-11eb-92ed-3efd91b9e821.jpeg)
+
+![News Blog](https://user-images.githubusercontent.com/81963417/121962841-f2985480-cd71-11eb-9091-65f77d8bbf79.png).
+
 
 
