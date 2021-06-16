@@ -3,8 +3,8 @@
 * **manager**: Hadeel Abukhousah 2172116630
 * Naeimah Alsaleh 2171113711
 
-# **News Blog Description:**
-Our project is a news blog, news blog is type of blogs that cover a different topics such as bussines, lifestyle,fashion, gaming,technology,sciences,political.It's an environment for authors to share their idea's with each other by writting posts and leave a comments also they  can see the top for this month by trend post list,which motivates the authors to do their best.The authors can search for the posts by post title or by category types. Athors can stay in touch by the contact list . 
+# **E-commerce Description:**
+Our project is an ecoommerce website, that display a eco friendly homemade candles that replace the traditional cotton wicks with pure wooden wicks .
 
 
 # **Requirements for This project:**
@@ -23,7 +23,7 @@ Our project is a news blog, news blog is type of blogs that cover a different to
 # **ER-Diagram**
 
 
-![News Blog](https://user-images.githubusercontent.com/81963417/121962841-f2985480-cd71-11eb-9091-65f77d8bbf79.png).
+![News Blog](https://user-images.githubusercontent.com/81963417/122278850-0d90d300-cef0-11eb-83f2-255128593170.png).
 
 
 
