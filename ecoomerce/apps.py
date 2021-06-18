@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class NewsblogConfig(AppConfig):
+class EcoomerceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'newsblog'
+    name = 'ecoomerce'
