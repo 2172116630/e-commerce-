@@ -81,6 +81,9 @@ class order (models.Model):
   #def __str__(self):
     #return self.username
 
+class About(models.Model):
+  title= models.CharField(max_length=50)
+  body = models.TextField(max_length=255)
 
 
 
