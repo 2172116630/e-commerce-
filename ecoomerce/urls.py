@@ -1,8 +1,10 @@
 from django.urls import path
-from . import views
+from .views import available_product, unavailable_poduct
 
+app_name = 'ecommerce'
 urlpatterns = [
-    path('available/', views.available_product),
-    path('unavailable/', views.unavailable_poduct),
+    path('available/', available_product),
+    path('unavailable/', unavailable_poduct),
 
 ]
+
