@@ -1,4 +1,16 @@
 from django.urls import path
-from. import views
 
-path('<slug:slug>/', views.product_comment, name='product_comment')
+
+
+from .views import available_product, unavailable_poduct, product_detail
+
+app_name = 'ecommerce'
+urlpatterns = [
+    path('available/', available_product),
+    path('unavailable/', unavailable_poduct),
+    path('show/product/<int:product_id>/', product_detail),
+    path('<slug:slug>/', views.product_comment, name='product_comment')
+
+]
+
+
