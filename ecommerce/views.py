@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from .mpdels import Product
-from .forms import CommentForm
 from django.shortcuts import render, get_object_or_404
-from. models import product,comment
+
+from .models import Product, Comment
+from .forms import CommentForm
+
+# read pep8 documentation on how to write python code
+
 # Create your views here.
 def available_product(request):
   data={}
@@ -10,6 +13,7 @@ def available_product(request):
   data['available'] = poll_list
   return render(request, "available_product.html", context=data)
 
+    #unavailable_poduct 
 def unavailable_product(request):
   data={}
   poll_list = Product.objects.filter(status=False)
