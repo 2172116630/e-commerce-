@@ -9,15 +9,15 @@ from .forms import CommentForm
 # Create your views here.
 def available_product(request):
   data={}
-  poll_list = Product.objects.filter(status=True)
-  data['available'] = poll_list
+  product_list = Product.objects.filter(status=True)
+  data['available'] = product_list
   return render(request, "available_product.html", context=data)
 
     #unavailable_poduct 
 def unavailable_product(request):
   data={}
-  poll_list = Product.objects.filter(status=False)
-  data['unavailable'] = poll_list
+  product_list = Product.objects.filter(status=False)
+  data['unavailable'] = product_list
   return render(request, "unavailable_product.html", context=data)
 
 def product_detail(request, product_id):
@@ -27,6 +27,8 @@ def product_detail(request, product_id):
   data['product'] = product_list
   data['comment'] = comment_list
   return render(request, "product_detail.html", context=data)
+
+
 def product_comment(request, slug):
   template_name = 'product_comment.html'
   post = get_object_or_404(product_detail, slug=slug)
@@ -39,12 +41,12 @@ def product_comment(request, slug):
 # Create Comment object but don&#39;t save to database yet
           new_comment = comment_form.save(commit=False)
 # Assign the current post to the comment
-          new_comment.product = product
+          new_comment.product = Product
 # Save the comment to the database
           new_comment.save()
   else:
        comment_form = CommentForm()
-  return render(request, template_name, {'product': product,
+  return render(request, template_name, {'product': Product,
 'comments': comments,
 'new_comment':new_comment,
 'comment_form': comment_form})
