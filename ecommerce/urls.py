@@ -1,7 +1,4 @@
 from django.urls import path
-
-
-
 from .views import available_product, unavailable_product, product_detail, product_comment
 
 app_name = 'ecommerce'
