@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main>
+    <div class="container">
+
+    <div class="table-responsive text-nowrap">
+    <h2>Order Summary</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Product Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order_product in object.product.all %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ order_product.product.title }}</td>
+            <td>{{ order_product.product.price }}</td>
+            <td>
+                
+                {{ order_item.quantity }}
+                <a href="{% url 'ecommerce:add-to-cart' order_product.product.slug %}"><i class="fas fa-plus ml-2"></i></a>
+            </td>
+            
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan='5'>Your cart is empty</td>
+        </tr>
+        
+        {% endfor %}
+        
+        </tbody>
+    </table>
+
+    </div>
+
+    </div>
+  </main>
+
+{% endblock content %}

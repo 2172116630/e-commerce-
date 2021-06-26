@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-
-from .models import Product, Comment
+from django.shortcuts import redirect
+from django.utils import timezone
+from django.contrib import messages
+from .models import Product, Comment, Order, ProductBasket
 from .forms import CommentForm
 
 # read pep8 documentation on how to write python code
@@ -50,4 +52,59 @@ def product_comment(request, slug):
 'comments': comments,
 'new_comment':new_comment,
 'comment_form': comment_form})
+
+def add_to_cart(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    order_product, created= ProductBasket.objects.get_or_create(
+      product=product,
+      user=request.user,
+      ordered=False
+    )
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.product.filter(item__slug=product.slug).exists():
+          order_product.quantity += 1
+          order_product.save()
+          messages.info(request, "This product quantity was updated.")
+          return redirect("ecommerce:order-summary")
+        else:
+          order.items.add(order_product)
+          messages.info(request, "This product was added to your cart.")
+          return redirect("ecommerce:order-summary")
+    else:
+      ordered_date = timezone.now()
+      order = Order.objects.create(
+          user=request.user, ordered_date=ordered_date)
+      order.product.add(order_product)
+      messages.info(request, "This product was added to your cart.")
+      return redirect("ecommerce:order-summary")
+
+def remove_from_cart (request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    order_qs = Order.objects.filter(
+        user=request.user,
+        ordered=False
+    )
+    if order_qs.exists():
+        order = order_qs[0]
+        # check if the order item is in the order
+        if order.items.filter(item__slug=product.slug).exists():
+            order_product = ProductBasket.objects.filter(
+                product=product,
+                user=request.user,
+                ordered=False
+            )[0]
+            order.items.remove(order_product)
+            order_product.delete()
+            messages.info(request, "This product was removed from your cart.")
+            return redirect("ecommerce:order-summary")
+        else:
+            messages.info(request, "This product was not in your cart")
+            return redirect("ecommerce:product", slug=slug)
+    else:
+        messages.info(request, "You do not have an active order")
+        return redirect("ecommerce:product", slug=slug)
+
 
