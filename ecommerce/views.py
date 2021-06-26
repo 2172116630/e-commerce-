@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 
 from .models import Product, Comment
 from .forms import CommentForm
@@ -31,7 +31,7 @@ def product_detail(request, product_id):
 
 def product_comment(request, slug):
   template_name = 'product_comment.html'
-  post = get_object_or_404(product_detail, slug=slug)
+  post = get_object_or_404(Product, slug=slug)
   comments = post.comments.filter(active=True)
   new_comment = None
 # Comment posted
