@@ -8,7 +8,7 @@ Our project is an ecoommerce website, that display a eco friendly homemade candl
 
 
 # **Requirements for This project:**
-* Input some data for testing, you must have at least 4 Category with each Category  has at lest ine product, and randomly provide comments for some of the products.Use the admin interface username: user, password: U123U123.
+* Input some data for testing, you must have at least 4 Category with each Category  has at lest one product, and randomly provide comments for some of the products.Use the admin interface username: hadeel, password: 123123.
 * Create a view to list all the product which have an available status, show the product title and date it will be created on.
 * Create a view to list all the product which have a unavailable status, show the product title and date it will be created on.
 * Create a view to show the details of a single product (all information about the product), including the comments.
