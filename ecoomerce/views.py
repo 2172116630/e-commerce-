@@ -45,3 +45,20 @@ def product_comment(request, slug):
 'new_comment':new_comment,
 'comment_form': comment_form})
 
+class OrderSummaryView(LoginRequiredMixin, View):
+    def get(self, *args, **kwargs):
+        try:
+            order = order.objects.get(user=self.request.user, ordered=False)
+            context = {
+                'object': order
+            }
+            return render(self.request, 'order_summary.html', context)
+        except ObjectDoesNotExist:
+            messages.warning(self.request, "You do not have an active order")
+            return redirect("/")
+
+def about_view(request):
+    data = {}
+    data["about_us"] = "e-commerce" 
+    return render(request, "about.html", context=data)
+ 
