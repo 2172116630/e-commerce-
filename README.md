@@ -4,7 +4,7 @@
 * Naeimah Alsaleh 2171113711
 
 # **E-commerce Description:**
-Our project is an ecoommerce website, that display a eco friendly homemade candles that replace the traditional cotton wicks with pure wooden wicks .
+Our project is an ecoommerce website, that provide diffrent technology products from multiple high qulality brands such as, Apple , HP, Android.
 
 
 # **Requirements for This project:**
@@ -23,7 +23,7 @@ Our project is an ecoommerce website, that display a eco friendly homemade candl
 # **ER-Diagram**
 
 
-![News Blog](https://user-images.githubusercontent.com/81963417/122278850-0d90d300-cef0-11eb-83f2-255128593170.png).
+![ecommerce](https://user-images.githubusercontent.com/81963417/122278850-0d90d300-cef0-11eb-83f2-255128593170.png).
 
 
 
