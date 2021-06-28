@@ -24,5 +24,11 @@
     {% endfor %}
 
   </table>
+<ul> 
+{% for x in product %}
+   <li><strong><a href="product/comment/{{x.id}}/">{{ x.title }
+   </strong></li>
+  {% endfor %} 
+</ul>
 </body>
 </html>
