@@ -4,7 +4,7 @@
 * Naeimah Alsaleh 2171113711
 
 # **E-commerce Description:**
-Our project is an ecoommerce website, that provide diffrent technology products from multiple high qulality brands such as, Apple , HP, Android.
+Our project is an ecoommerce website, that provide different technology products from multiple high qulality brands such as, Apple , HP, Android.
 
 
 # **Requirements for This project:**
@@ -18,7 +18,7 @@ Our project is an ecoommerce website, that provide diffrent technology products 
 * create a view to add a product into a product basket.
 * create a view to remove a product from the product basket.
 * create a view that show a summary of an order 
-* Create a view to create a order that redirects you back to the product basket upon successful completion.
+* in the order summary view put a message warning if the order is not active.
 *  create an About view to show the Description about the website.
 # **ER-Diagram**
 
