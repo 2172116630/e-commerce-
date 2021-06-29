@@ -27,8 +27,10 @@ def unavailable_product(request):
 
 def product_detail(request, product_id):
   data={}
+  #objects = model manager, get= queryes(unique value :id)
   product_list = Product.objects.get(id = product_id)
   comment_list = product_list.comment_set.all()
+  # we assigned product into product_ list
   data['product'] = product_list
   data['comment'] = comment_list
   return render(request, "product_detail.html", context=data)
@@ -113,7 +115,9 @@ def remove_from_cart (request, slug):
         return redirect("ecommerce:product", slug=slug)
 
 @login_required
+#all requests by non-authenticated users will be redirected to the login page or shown an http error.
 class OrderSummaryView(LoginRequiredMixin):
+# args passes variable number of non keyworded argument list and on which operation of the list can be preformed, kwargs makes the function flexible.
     def get(self, *args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
