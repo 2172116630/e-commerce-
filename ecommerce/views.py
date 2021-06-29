@@ -3,6 +3,9 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Product, Comment, Order, ProductBasket
 from .forms import CommentForm
 
@@ -30,7 +33,7 @@ def product_detail(request, product_id):
   data['comment'] = comment_list
   return render(request, "product_detail.html", context=data)
 
-
+@login_required
 def product_comment(request, slug):
   template_name = 'product_comment.html'
   post = get_object_or_404(Product, slug=slug)
@@ -53,6 +56,7 @@ def product_comment(request, slug):
 'new_comment':new_comment,
 'comment_form': comment_form})
 
+@login_required
 def add_to_cart(request, slug):
     product = get_object_or_404(Product, slug=slug)
     order_product, created= ProductBasket.objects.get_or_create(
@@ -81,6 +85,7 @@ def add_to_cart(request, slug):
       messages.info(request, "This product was added to your cart.")
       return redirect("ecommerce:order-summary")
 
+@login_required
 def remove_from_cart (request, slug):
     product = get_object_or_404(Product, slug=slug)
     order_qs = Order.objects.filter(
@@ -107,10 +112,11 @@ def remove_from_cart (request, slug):
         messages.info(request, "You do not have an active order")
         return redirect("ecommerce:product", slug=slug)
 
-class OrderSummaryView(LoginRequiredMixin, View):
+@login_required
+class OrderSummaryView(LoginRequiredMixin):
     def get(self, *args, **kwargs):
         try:
-            order = order.objects.get(user=self.request.user, ordered=False)
+            order = Order.objects.get(user=self.request.user, ordered=False)
             context = {
                 'object': order
             }
