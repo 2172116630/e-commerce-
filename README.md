@@ -27,3 +27,6 @@ Our project is an ecoommerce website, that provide diffrent technology products 
 
 
 
+# **bonus:**
+* bootstrap (templets > base.html)
+* user managment (allauth package) (setting.py)
