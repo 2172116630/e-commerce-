@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Product, Comment, Order, ProductBasket
+from .models import Product, ProductBasket, Order, Category, About, Comment
 from .forms import CommentForm
 
 # read pep8 documentation on how to write python code
@@ -76,7 +76,7 @@ def add_to_cart(request, slug):
           messages.info(request, "This product quantity was updated.")
           return redirect("ecommerce:order-summary")
         else:
-          order.items.add(order_product)
+          order.product.add(order_product)
           messages.info(request, "This product was added to your cart.")
           return redirect("ecommerce:order-summary")
     else:
@@ -88,22 +88,20 @@ def add_to_cart(request, slug):
       return redirect("ecommerce:order-summary")
 
 @login_required
-def remove_from_cart (request, slug):
+def remove_from_cart (request, slug, Order):
     product = get_object_or_404(Product, slug=slug)
-    order_qs = Order.objects.filter(
-        user=request.user,
-        ordered=False
-    )
+    order_qs = Order.objects.filter(user=request.user, ordered=False) 
+    
     if order_qs.exists():
-        order = order_qs[0]
+        Order = order_qs[0]
         # check if the order item is in the order
-        if order.items.filter(item__slug=product.slug).exists():
+        if Order.product.filter(product__slug=product.slug).exists():
             order_product = ProductBasket.objects.filter(
                 product=product,
                 user=request.user,
                 ordered=False
             )[0]
-            order.items.remove(order_product)
+            Order.product.remove(order_product)
             order_product.delete()
             messages.info(request, "This product was removed from your cart.")
             return redirect("ecommerce:order-summary")

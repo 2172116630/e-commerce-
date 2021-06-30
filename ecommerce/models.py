@@ -1,5 +1,5 @@
 from django.db import models
-#from django.conf import settings
+from django.conf import settings
 # Create your models here.
 class Category(models.Model):
   STATUS = (
@@ -12,7 +12,6 @@ class Category(models.Model):
   body = models.TextField(max_length=255)
   #image=models.ImageField(blank=True,upload_to='images/')
   status=models.CharField(max_length=10, choices=STATUS)
-  slug = models.SlugField(null=False, unique=True)
   create_on=models.DateTimeField(auto_now_add=True)
   update_on=models.DateTimeField(auto_now=True)
 
@@ -67,23 +66,27 @@ class Comment(models.Model):
 class ProductBasket (models.Model):
   product=models.ForeignKey(Product,on_delete=models.CASCADE)
   title = models.CharField(max_length=20, blank=True)
+  quantity=models.IntegerField(default=1)
+
 
   def __str__(self):
     return self.title
 
-class order (models.Model):
-  #user=models.Foreignkey(settings.AUTH_User_MODEL,on_delete=models.CASCADE)
+class Order (models.Model):
+  user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
   product=models.ManyToManyField(ProductBasket)
   create_on=models.DateTimeField(auto_now_add=True)
   order_date=models.DateTimeField
   ordered=models.BooleanField(default=False)
+  quantity=models.IntegerField(default=1)
 
-  #def __str__(self):
-    #return self.username
+
+  def __str__(self):
+    return self.username
 
 class About(models.Model):
   title= models.CharField(max_length=50)
-  body = models.TextField(max_length=255)
+  body=models.TextField(max_length=255)
 
 
 
